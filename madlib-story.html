@@ -1,0 +1,56 @@
+<html>
+<body>
+
+  <!-- 
+  
+write a javascript program running in the browser that prompts the user for a noun, a verb, an adjective, and an adverb, and then makes and displays a correct English sentence using the words, and then asks ChatGPT to make a funny story from the sentence, displaying it in the browser 
+
+Here is a JavaScript program that does what you have described, running in the browser: .... 
+
+To run this program, you can save it to an HTML file and then open it in a web browser. You will also need to include your own ChatGPT model ID in the code where it says "model_id". When you enter a noun, verb, adjective, and adverb, and then click the button, the program will first display a correct English sentence using the words in the output element. Then, it will use ChatGPT to generate a funny story based on the sentence, and display the story in the output element as well.
+
+Note: This program requires a connection to the internet in order to access the ChatGPT API. Additionally, you will need to sign up for a free API key from OpenAI in order to use the ChatGPT API. You can sign up for an API key at https://beta.openai.com/.  
+
+  -->
+
+  <p>Enter a noun:</p>
+  <input id="noun" type="text" />
+  <p>Enter a verb:</p>
+  <input id="verb" type="text" />
+  <p>Enter an adjective:</p>
+  <input id="adjective" type="text" />
+  <p>Enter an adverb:</p>
+  <input id="adverb" type="text" />
+  <button id="button">Create Sentence</button>
+  <p id="output"></p>
+
+  <script src="https://cdn.jsdelivr.net/npm/openai@2.4.2/dist/openai.min.js"></script>
+  <script>
+    const nounElement = document.getElementById('noun');
+    const verbElement = document.getElementById('verb');
+    const adjectiveElement = document.getElementById('adjective');
+    const adverbElement = document.getElementById('adverb');
+    const buttonElement = document.getElementById('button');
+    const outputElement = document.getElementById('output');
+
+    buttonElement.addEventListener('click', () => {
+      const noun = nounElement.value;
+      const verb = verbElement.value;
+      const adjective = adjectiveElement.value;
+      const adverb = adverbElement.value;
+      const sentence = `The ${adjective} ${noun} ${adverb} ${verb}s.`;
+      outputElement.innerHTML = sentence;
+
+      const chatGpt = new openai.ChatGPT("model_id");
+      chatGpt.generate({
+        prompt: `Tell a funny story about the sentence "${sentence}"`,
+        max_tokens: 2048,
+        temperature: 0.5
+      }).then((response) => {
+        const story = response.data.choices[0].text;
+        outputElement.innerHTML += `<br><br>${story}`;
+      });
+    });
+  </script>
+</body>
+</html>
