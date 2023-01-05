@@ -1,0 +1,35 @@
+<html>
+<head>
+  <style>
+    .container {
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+    }
+    .output {
+      margin-top: 16px;
+      font-size: 24px;
+      font-weight: bold;
+    }
+  </style>
+</head>
+<body>
+  <div class="container">
+    <input id="input" type="text" placeholder="Enter an input string" />
+    <button id="button">Count Characters</button>
+    <div id="output" class="output"></div>
+  </div>
+
+  <script>
+    const inputElement = document.getElementById('input');
+    const buttonElement = document.getElementById('button');
+    const outputElement = document.getElementById('output');
+
+    buttonElement.addEventListener('click', () => {
+      const inputString = inputElement.value;
+      const characterCount = inputString.length;
+      outputElement.innerHTML = `The input string is: ${inputString}<br>The character count is: ${characterCount}`;
+    });
+  </script>
+</body>
+</html>
