@@ -1,0 +1,32 @@
+<html>
+<body>
+  <p>Enter a noun:</p>
+  <input id="noun" type="text" />
+  <p>Enter a verb:</p>
+  <input id="verb" type="text" />
+  <p>Enter an adjective:</p>
+  <input id="adjective" type="text" />
+  <p>Enter an adverb:</p>
+  <input id="adverb" type="text" />
+  <button id="button">Create Sentence</button>
+  <p id="output"></p>
+
+  <script>
+    const nounElement = document.getElementById('noun');
+    const verbElement = document.getElementById('verb');
+    const adjectiveElement = document.getElementById('adjective');
+    const adverbElement = document.getElementById('adverb');
+    const buttonElement = document.getElementById('button');
+    const outputElement = document.getElementById('output');
+
+    buttonElement.addEventListener('click', () => {
+      const noun = nounElement.value;
+      const verb = verbElement.value;
+      const adjective = adjectiveElement.value;
+      const adverb = adverbElement.value;
+      const sentence = `The ${adjective} ${noun} ${adverb} ${verb}s.`;
+      outputElement.innerHTML = sentence;
+    });
+  </script>
+</body>
+</html>
