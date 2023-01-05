@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>Number Calculator</title>
+  </head>
+  <body>
+  
+    <!-- 
+write a javascript program to run in the browser that prompts the user for two numbers, if the user does not enter a number or enters a negative number, then display an error message telling the user what to do to correct the error, then when the user has entered two positive correct numbers, write out calculations with the number following the following example: first number = 7, second number = 25, 7 + 25 = 32, 7 - 25 = -18, 7 * 25 = 175, 7 / 25 = 0.28
+  -->
+  
+    <script>
+      // prompt the user for the first number
+      var num1 = prompt("Enter the first number:");
+
+      // check if the input is a valid positive number
+      while (isNaN(num1) || num1 < 0) {
+        // if not, display an error message and prompt the user again
+        alert("Invalid input. Please enter a positive number.");
+        num1 = prompt("Enter the first number:");
+      }
+
+      // prompt the user for the second number
+      var num2 = prompt("Enter the second number:");
+
+      // check if the input is a valid positive number
+      while (isNaN(num2) || num2 < 0) {
+        // if not, display an error message and prompt the user again
+        alert("Invalid input. Please enter a positive number.");
+        num2 = prompt("Enter the second number:");
+      }
+
+      // convert the input strings to numbers
+      num1 = Number(num1);
+      num2 = Number(num2);
+
+      // perform the calculations and output the results
+      document.write(num1 + " + " + num2 + " = " + (num1 + num2) + "<br>");
+      document.write(num1 + " - " + num2 + " = " + (num1 - num2) + "<br>");
+      document.write(num1 + " * " + num2 + " = " + (num1 * num2) + "<br>");
+      document.write(num1 + " / " + num2 + " = " + (num1 / num2) + "<br>");
+    </script>
+  </body>
+</html>
+
