@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<html>
+  <head>
+  
+ <!--
+ This program will display a yellow dialog box with a backgroun of light blue
+ in the center of the browser window, with inputs for the user's age and the age they wish to retire at. 
+ When the user clicks the "Calculate" button, the program will calculate 
+ the number of years until retirement and the retirement year, 
+ and display the results in the dialog box.
+
+ --> 
+  
+    <style>
+	  body {
+        background-color: lightblue;
+      }
+      .dialog {
+        width: 400px;
+        height: 200px;
+        background-color: yellow;
+        border: 2px solid #000000;
+        position: absolute;
+        top: 50%;
+        left: 50%;
+        transform: translate(-50%, -50%);
+        padding: 20px;
+        text-align: center;
+      }
+    </style>
+    <title>Retirement Calculator</title>
+  </head>
+  <body>
+    <div class="dialog">
+      <h1>Retirement Calculator</h1>
+      <p>Enter your age:</p>
+      <input id="age" type="number">
+      <p>Enter the age you wish to retire at:</p>
+      <input id="retirementAge" type="number">
+      <br>
+      <br>
+      <button onclick="calculate()">Calculate</button>
+      <br>
+      <br>
+      <p id="result"></p>
+    </div>
+    <script>
+      function calculate() {
+        // get the current year
+        var currentYear = new Date().getFullYear();
+
+        // get the user's age and retirement age
+        var age = document.getElementById("age").value;
+        var retirementAge = document.getElementById("retirementAge").value;
+
+        // calculate the number of years until retirement and the retirement year
+        var yearsUntilRetirement = retirementAge - age;
+        var retirementYear = currentYear + yearsUntilRetirement;
+
+        // display the results
+        document.getElementById("result").innerHTML = "You have " + yearsUntilRetirement + " years until retirement.<br>Current year: " + currentYear + "<br>Retirement year: " + retirementYear;
+      }
+    </script>
+  </body>
+</html>
