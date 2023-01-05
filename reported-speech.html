@@ -1,0 +1,25 @@
+<html>
+<body>
+  <p>Enter the name of the person:</p>
+  <input id="name" type="text" />
+  <p>Enter the sentence that the person says:</p>
+  <input id="sentence" type="text" />
+  <button id="button">Create Quoted Sentence</button>
+  <p id="output"></p>
+
+  <script>
+    const nameElement = document.getElementById('name');
+    const sentenceElement = document.getElementById('sentence');
+    const buttonElement = document.getElementById('button');
+    const outputElement = document.getElementById('output');
+
+    buttonElement.addEventListener('click', () => {
+      const name = nameElement.value;
+      const sentence = sentenceElement.value;
+      const quotedSentence = `${name} says, "${sentence}"`;
+      outputElement.innerHTML = quotedSentence;
+    });
+  </script>
+</body>
+</html>
+
